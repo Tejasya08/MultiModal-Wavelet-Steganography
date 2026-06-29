@@ -63,10 +63,10 @@ MultiModal-Wavelet-Steganography
 │
 └── results
     ├── cover_vs_stego.png
-    ├── histogram_comparison.png
-    ├── extraction_results.png
+    ├── Encoder.png
+    ├── Decoder.png
     ├── robustness_analysis.png
-    └── comparison_table.png
+    └── Architecture.png
 ```
 
 ---
