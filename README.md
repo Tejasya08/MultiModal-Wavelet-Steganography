@@ -239,9 +239,6 @@ The proposed model was evaluated under multiple representative image processing 
 
 The framework demonstrates strong robustness against common transmission distortions while maintaining reliable secret recovery.
 
-<p align="center">
-<img src="results/robustness_analysis.png" width="900">
-</p>
 
 ---
 
