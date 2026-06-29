@@ -1,12 +1,13 @@
 # MultiModal-Wavelet-Steganography
 
-<div align="center">
+<p align="center">
 
-<h2>Robust Deep Learning-based Multimodal Image Steganography using Wavelet Transform and Residual Attention Networks</h2>
+<h2>Channel-Aware Blind Multimodal Image Steganography using Wavelet Transform and Residual Attention Networks</h2>
 
 <p>
-A PyTorch implementation of a robust multimodal steganography framework capable of securely hiding
-<strong>binary images</strong> or <strong>encrypted text messages</strong> inside natural images while maintaining high visual quality and reliable secret recovery.
+
+A PyTorch implementation of a robust deep learning framework for hiding **binary images** and **encrypted text messages** inside natural images using **Discrete Wavelet Transform (DWT)**, **Residual Attention Networks**, and **Curriculum Learning**.
+
 </p>
 
 <p>
@@ -14,188 +15,35 @@ A PyTorch implementation of a robust multimodal steganography framework capable 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-red.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey)
-![Status](https://img.shields.io/badge/Status-Research-orange)
+![Research](https://img.shields.io/badge/Status-Research-orange.svg)
 
 </p>
 
-</div>
-
----
-
-# Table of Contents
-
-- Overview
-- Features
-- Methodology
-- Network Architecture
-- Pipeline
-- Repository Structure
-- Installation
-- Requirements
-- Dataset
-- Training
-- Secret Embedding
-- Secret Extraction
-- Evaluation Metrics
-- Experimental Results
-- Visualizations
-- Applications
-- Future Work
-- Citation
-- License
+</p>
 
 ---
 
 # Overview
 
-Image steganography aims to hide confidential information inside digital images while maintaining imperceptibility and enabling accurate recovery of the embedded secret.
+This repository presents a **deep learning-based multimodal steganography framework** capable of securely embedding either **binary images** or **encrypted text messages** inside natural images while preserving high visual quality and enabling accurate blind extraction.
 
-This repository proposes a **deep learning-based multimodal steganography framework** that combines
-
-- Discrete Wavelet Transform (DWT)
-- Residual Attention Networks
-- Curriculum Learning
-- Robustness-aware Training
-- Frequency-domain Optimization
-- Perceptual Loss Functions
-
-to securely embed either
-
-- Binary Images
-- Text Messages
-
-Inside RGB images.
-
-Unlike conventional spatial-domain approaches, secret information is embedded into carefully selected wavelet sub-bands, significantly improving image quality and robustness against practical distortions such as
-
-- JPEG Compression
-- Quantization
-- Gaussian Noise
-- Dropout Noise
+Unlike conventional spatial-domain steganography, the proposed framework performs adaptive embedding in the **Discrete Wavelet Transform (DWT)** domain using a **channel-aware residual attention encoder** that exploits the Human Visual System (HVS). The model is trained using curriculum learning, perceptual optimization, and robustness-aware noise simulation to improve resilience against practical transmission distortions.
 
 ---
 
 # Features
 
-- Deep Learning-based Steganography
-- Wavelet Domain Embedding
-- Image Secret Embedding
-- Text Secret Embedding
-- Residual Attention Encoder
-- Deep CNN Decoder
-- Curriculum Learning
-- Channel-aware Embedding
-- SSIM Optimization
-- Frequency-domain Optimization
-- Gradient Preservation
-- XOR Encryption
-- Automatic Evaluation
-- Visualization Utilities
-- Publication-ready Results
-
----
-
-# Methodology
-
-The proposed framework consists of three stages.
-
-## Stage 1 — Secret Preparation
-
-The framework supports
-
-- Binary Secret Images
-- UTF-8 Text Messages
-
-Optional XOR encryption is applied before embedding.
-
----
-
-## Stage 2 — Secret Embedding
-
-The cover image is
-
-RGB
-
-↓
-
-YUV Conversion
-
-↓
-
-Discrete Wavelet Transform
-
-↓
-
-Residual Attention Encoder
-
-↓
-
-Wavelet-domain Embedding
-
-↓
-
-Inverse DWT
-
-↓
-
-Stego Image
-
----
-
-## Stage 3 — Secret Extraction
-
-Stego Image
-
-↓
-
-Discrete Wavelet Transform
-
-↓
-
-Residual Decoder
-
-↓
-
-Secret Recovery
-
-↓
-
-Image or Text Reconstruction
-
----
-
-# Network Architecture
-
-Replace this image with your architecture figure.
-
-```
-docs/architecture.png
-```
-
-Example
-
-<p align="center">
-
-<img src="docs/architecture.png" width="900">
-
-</p>
-
----
-
-# Pipeline
-
-Replace with your pipeline figure.
-
-```
-docs/pipeline.png
-```
-
-<p align="center">
-
-<img src="docs/pipeline.png" width="900">
-
-</p>
+- Wavelet-domain image steganography
+- Multimodal secret embedding (Image & Text)
+- Blind secret extraction
+- Channel-aware residual attention encoder
+- Deep residual decoder
+- Curriculum learning strategy
+- Squeeze-and-Excitation attention modules
+- Multi-objective loss optimization
+- XOR-based payload encryption
+- JPEG, Gaussian noise, and quantization robustness
+- Automatic visualization and evaluation pipeline
 
 ---
 
@@ -204,56 +52,21 @@ docs/pipeline.png
 ```
 MultiModal-Wavelet-Steganography
 │
-├── configs
-│   ├── train.yaml
-│   ├── sender.yaml
-│   └── receiver.yaml
-│
-├── datasets
-│   ├── cover_images
-│   ├── secret_images
-│   └── test
-│
-├── checkpoints
-│   └── best_model.pth
-│
-├── docs
-│   ├── architecture.png
-│   ├── pipeline.png
-│   ├── results.png
-│   ├── cover_stego.png
-│   └── extraction.png
-│
-├── examples
-│   ├── cover
-│   ├── secret
-│   ├── stego
-│   └── recovered
-│
-├── results
-│   ├── figures
-│   ├── metrics
-│   └── visualizations
-│
-├── scripts
-│   ├── train.py
-│   ├── sender.py
-│   ├── receiver.py
-│   └── evaluate.py
-│
-├── src
-│   ├── models
-│   ├── losses
-│   ├── transforms
-│   ├── metrics
-│   ├── encryption
-│   ├── visualization
-│   └── utils
-│
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
-└── .gitignore
+│
+├── codes
+│   ├── training.py
+│   ├── sender.py
+│   └── receiver.py
+│
+└── results
+    ├── cover_vs_stego.png
+    ├── histogram_comparison.png
+    ├── extraction_results.png
+    ├── robustness_analysis.png
+    └── comparison_table.png
 ```
 
 ---
@@ -263,17 +76,9 @@ MultiModal-Wavelet-Steganography
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/MultiModal-Wavelet-Steganography.git
+git clone https://github.com/<username>/MultiModal-Wavelet-Steganography.git
 
 cd MultiModal-Wavelet-Steganography
-```
-
-Create environment
-
-```bash
-python -m venv stego
-
-source stego/bin/activate
 ```
 
 Install dependencies
@@ -286,40 +91,15 @@ pip install -r requirements.txt
 
 # Requirements
 
-- Python ≥ 3.10
+- Python 3.10+
 - PyTorch
 - torchvision
-- OpenCV
 - NumPy
+- OpenCV
 - SciPy
-- Pillow
 - scikit-image
 - matplotlib
-- tqdm
-
----
-
-# Dataset
-
-The dataset directory should follow
-
-```
-datasets/
-
-cover_images/
-
-secret_images/
-
-validation/
-
-test/
-```
-
-Supported formats
-
-- PNG
-- JPG
-- TIFF
+- Pillow
 
 ---
 
@@ -328,160 +108,166 @@ Supported formats
 Train the complete encoder-decoder framework
 
 ```bash
-python scripts/train.py
+python codes/training.py
 ```
 
-Training includes
+The training framework includes
 
 - Curriculum Learning
+- DWT-domain embedding
+- SSIM Loss
+- Gradient Loss
+- Frequency-domain Loss
 - Noise Simulation
-- Frequency Optimization
-- Perceptual Optimization
-- Wavelet-domain Embedding
-- Robust Secret Recovery
+- Adaptive Optimization
 
 ---
 
 # Secret Embedding
 
-## Image Secret
+Run
 
 ```bash
-python scripts/sender.py \
---mode image \
---cover examples/cover.png \
---secret examples/secret.png
+python codes/sender.py
 ```
 
----
+Supported payloads
 
-## Text Secret
+- Binary Images
+- Encrypted Text
 
-```bash
-python scripts/sender.py \
---mode text \
---text "Confidential Message"
-```
+The sender automatically
+
+- Embeds the payload
+- Generates Stego Images
+- Computes PSNR, SSIM, MSE, UIQI, VIF, NPCR and UACI
+- Saves visualization results
 
 ---
 
 # Secret Extraction
 
+Run
+
 ```bash
-python scripts/receiver.py
+python codes/receiver.py
 ```
 
-Recovered secrets are automatically stored inside
+The receiver
 
-```
-results/recovered/
-```
-
----
-
-# Loss Functions
-
-The encoder is optimized using
-
-- Binary Cross Entropy Loss
-- Mean Squared Error Loss
-- L1 Loss
-- Structural Similarity Loss
-- Gradient Loss
-- Frequency-domain Loss
-
-These complementary objectives improve
-
-- Imperceptibility
-- Robustness
-- Secret Recovery
-- Structural Preservation
-
----
-
-# Evaluation Metrics
-
-## Image Quality
-
-- PSNR
-- SSIM
-- MSE
-- UIQI
-- VIF
-- NPCR
-- UACI
-
----
-
-## Secret Recovery
-
-- BER
-- NCC
-- Extraction Accuracy
-
----
-
-## Text Recovery
-
-- Character Accuracy
-- UTF-8 Validation
-- Perfect Match Rate
+- Recovers hidden payloads
+- Computes BER
+- Computes NCC
+- Computes Extraction Accuracy
+- Generates recovery visualizations
 
 ---
 
 # Experimental Results
 
-| Metric | Value |
-|---------|-------|
-| PSNR | XX.XX dB |
-| SSIM | 0.XXXX |
-| BER | 0.XXXX |
-| NCC | 0.XXXX |
-| Extraction Accuracy | XX.XX% |
-
-Replace with your final results.
+The proposed framework was evaluated using the **UC Merced Land Use Dataset**, consisting of 2,100 aerial images across 21 land-use classes. Evaluation was performed using both **image payload** and **encrypted text payload** settings.
 
 ---
 
-# Visualizations
+## Image Payload
 
-The framework automatically generates
+| Metric | Value |
+|---------|------:|
+| PSNR | **40.23 dB** |
+| SSIM | **0.9998** |
+| MSE | **6.8100** |
+| UIQI | **0.9998** |
 
-- Cover vs Stego Comparison
-- Difference Maps
-- RGB Histograms
-- Secret Recovery
-- Extraction Comparison
-- Performance Summary
+The stego images remain visually indistinguishable from the original cover images while preserving structural similarity.
 
-Example
+---
 
-```
-results/
 
-cover_vs_stego.png
 
-difference_map.png
+## Text Payload
 
-histograms.png
+| Metric | Value |
+|---------|------:|
+| PSNR | **40.23 dB** |
+| SSIM | **0.9998** |
+| MSE | **6.8150** |
+| UIQI | **0.9998** |
 
-secret_recovery.png
+The framework exhibits consistent visual quality for both image and encrypted text payloads.
 
-metrics.csv
-```
+---
+
+## Secret Recovery
+
+| Metric | Value |
+|---------|------:|
+| BER | **0.0032** |
+| NCC | **0.9902** |
+| Extraction Accuracy | **99.68%** |
+
+The proposed decoder successfully reconstructs hidden payloads with minimal bit errors.
+
+<p align="center">
+<img src="results/extraction_results.png" width="900">
+</p>
+
+---
+
+## Text Recovery
+
+| Metric | Value |
+|---------|------:|
+| Character Accuracy | **99.85%** |
+| Perfect Match | **9 / 11 Images** |
+
+The proposed framework reliably reconstructs encrypted text messages with very high accuracy.
+
+---
+
+## Robustness Analysis
+
+The proposed model was evaluated under multiple representative image processing attacks.
+
+| Attack | PSNR | SSIM | BER |
+|---------|------:|------:|------:|
+| Gaussian Noise | 41.78 | 0.9891 | 0.0071 |
+| Speckle Noise | 40.28 | 0.9826 | 0.0093 |
+| JPEG (Q90) | 31.65 | 0.9570 | 0.0136 |
+| JPEG (Q80) | 29.34 | 0.9332 | 0.0237 |
+| JPEG (Q70) | 27.79 | 0.9113 | 0.0317 |
+| JPEG (Q50) | 25.92 | 0.8744 | 0.0438 |
+
+The framework demonstrates strong robustness against common transmission distortions while maintaining reliable secret recovery.
+
+<p align="center">
+<img src="results/robustness_analysis.png" width="900">
+</p>
+
+---
+
+## Comparison with Existing Methods
+
+| Method | PSNR | SSIM | BER |
+|---------|------:|------:|------:|
+| **Proposed** | **40.23** | **0.9998** | **0.0032** |
+| INN | 20.24 | 0.9620 | 0.5343 |
+| AttenHideNet | 36.62 | 0.9963 | 0.5005 |
+| Segmented-Huffman | 54.80 | 0.9994 | 0.3712 |
+
+The proposed framework achieves superior structural fidelity and payload recovery accuracy while maintaining excellent visual quality.
 
 ---
 
 # Applications
 
 - Secure Multimedia Communication
-- Digital Watermarking
 - Medical Image Security
 - Military Communication
-- Cloud Storage
-- IoT Security
-- Edge AI
+- Digital Watermarking
 - Privacy-preserving Image Sharing
+- IoT Security
+- Cloud Storage
+- Edge AI Systems
 
 ---
 
@@ -489,45 +275,18 @@ metrics.csv
 
 - Video Steganography
 - Audio Steganography
-- Transformer Encoder
-- Diffusion Models
+- Vision Transformers
+- Diffusion-based Steganography
 - ONNX Deployment
 - Raspberry Pi Deployment
 - Mobile Inference
-- Adversarial Robustness
 
 ---
 
-# Citation
-
-If you use this repository in your research, please cite
-
-```bibtex
-@article{vashisht2026multimodal,
-  title={Robust Multimodal Image Steganography using Wavelet Transform and Deep Residual Attention Networks},
-  author={Tejasya Vashisht and Others},
-  journal={Under Review},
-  year={2026}
-}
-```
-
----
-
-# Acknowledgements
-
-This work was developed as part of ongoing research in
-
-- Deep Learning
-- Computer Vision
-- Image Security
-- Information Hiding
-- Multimedia Signal Processing
-
----
 
 # License
 
-This repository is released under the MIT License.
+This project is released under the **MIT License**.
 
 ---
 
@@ -535,16 +294,16 @@ This repository is released under the MIT License.
 
 **Tejasya Vashisht**
 
-GitHub: https://github.com/yourusername
+Electrical and Computer Engineering  
+Thapar Institute of Engineering and Technology
 
-LinkedIn: https://linkedin.com/in/yourprofile
+📧 Email: tvashisht_be23@thapar.edu
 
-Email: your_email@example.com
 
 ---
 
 <div align="center">
 
-⭐ If you find this repository useful, please consider starring it.
+### ⭐ If you find this work useful, please consider giving the repository a star.
 
 </div>
